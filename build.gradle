@@ -1,0 +1,85 @@
+import com.twobuffers.buildsrc.Libs
+import com.twobuffers.buildsrc.Versions
+
+buildscript {
+    ext.buildConfig = [
+            'compileSdk': 29,
+            'minSdk'    : 21,
+            'targetSdk' : 29,
+            'buildTools': "29.0.2",
+    ]
+    repositories {
+        mavenLocal()
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath Libs.androidGradlePlugin
+        classpath Libs.Kotlin.gradlePlugin
+        classpath Libs.AndroidX.Navigation.safeArgsGradlePlugin
+        classpath Libs.dexcountGradlePlugin
+        classpath Libs.spotlessGradlePlugin
+    }
+}
+
+plugins {
+    id 'com.github.ben-manes.versions' version "0.27.0"
+}
+
+allprojects {
+    repositories {
+        mavenLocal()
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url "https://dl.bintray.com/kotlin/kotlinx" }
+    }
+}
+
+subprojects {
+    apply plugin: 'com.diffplug.gradle.spotless'
+    spotless {
+        kotlin {
+            target "**/*.kt"
+            ktlint(Versions.ktlint)
+        }
+    }
+
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+        kotlinOptions {
+            // Treat all Kotlin warnings as errors
+            allWarningsAsErrors = true
+
+            jvmTarget = Versions.JAVA_VERSION_STR
+
+            // Enable experimental coroutines APIs, including Flow
+            freeCompilerArgs += "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi"
+            freeCompilerArgs += "-Xuse-experimental=kotlinx.coroutines.FlowPreview"
+            // Enable kotlin.Result
+            freeCompilerArgs += "-Xallow-result-return-type"
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+Object getProp(final String propertyName, final Object properties = project.properties) {
+    def propertyValue = properties[propertyName]
+    return propertyValue != null ? propertyValue : "<property-do-not-exist>"
+}
+
+String getPropEscaped(final String propertyName, final Object properties = project.properties) {
+    def propertyValue = properties[propertyName]
+    return propertyValue != null ? "\"$propertyValue\"" : "\"<property-do-not-exist>\""
+}
+
+Properties loadPropertiesFile(final String path) {
+    def props = new Properties()
+    def propertiesFile = project.rootProject.file(path)
+    if (propertiesFile.exists()) {
+        props.load(propertiesFile.newDataInputStream())
+    }
+    return props
+}

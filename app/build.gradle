@@ -1,0 +1,78 @@
+import com.twobuffers.buildsrc.Libs
+
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+ext {
+    ci = System.getenv("CI") == "true"
+}
+
+apply plugin: 'kotlin-kapt'
+kapt {
+    correctErrorTypes = true
+    useBuildCache = true
+}
+
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+apply plugin: 'com.getkeepsafe.dexcount'
+dexcount {
+    // Only run the method counter on CI
+    enabled = ci
+}
+
+android {
+    compileSdkVersion buildConfig.compileSdk
+    buildToolsVersion buildConfig.buildTools
+
+    defaultConfig {
+        applicationId "com.twobuffers.example.notificationpanel"
+        minSdkVersion buildConfig.minSdk
+        targetSdkVersion buildConfig.targetSdk
+        versionCode 1
+        multiDexEnabled = true
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+
+    dexOptions {
+        // Don't pre-dex on CI
+        preDexLibraries !ci
+    }
+
+    lintOptions {
+        // Disable lintVital. Not needed since lint is run on CI
+        checkReleaseBuilds false
+        // Allow lint to check dependencies
+        checkDependencies true
+        // Ignore any tests
+        ignoreTestSources true
+
+        disable 'GradleCompatible', 'FontValidationError'
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation Libs.Kotlin.stdlib
+    implementation Libs.AndroidX.appcompat
+    implementation Libs.AndroidX.coreKtx
+}
