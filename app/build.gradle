@@ -75,4 +75,15 @@ dependencies {
     implementation Libs.Kotlin.stdlib
     implementation Libs.AndroidX.appcompat
     implementation Libs.AndroidX.coreKtx
+
+    implementation Libs.Dagger.dagger
+    implementation Libs.Dagger.android
+    implementation Libs.Dagger.androidSupport
+    kapt Libs.Dagger.compiler
+    kapt Libs.Dagger.androidProcessor
+
+    implementation project(':base')
+    implementation project(':base-android')
+    implementation project(':ui-common')
+    implementation project(':app-common')
 }

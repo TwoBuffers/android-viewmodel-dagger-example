@@ -1,2 +1,7 @@
-include ':app'
 rootProject.name='Notification Panel'
+
+include ':base'
+include ':base-android'
+include ':ui-common'
+include ':app-common'
+include ':app'
