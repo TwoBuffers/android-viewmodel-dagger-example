@@ -87,5 +87,6 @@ dependencies {
     implementation project(':base-android')
     implementation project(':ui-common')
     implementation project(':ui-example-1-plain')
+    implementation project(':ui-example-2-injected')
     implementation project(':app-common')
 }

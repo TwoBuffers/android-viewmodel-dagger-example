@@ -23,6 +23,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.twobuffers.example.ui.example_2_injected.InjectedActivity"
+            tools:node="merge"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

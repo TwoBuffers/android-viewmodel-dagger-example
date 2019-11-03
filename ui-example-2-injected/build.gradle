@@ -1,0 +1,38 @@
+import com.twobuffers.buildsrc.Libs
+
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+kapt {
+    correctErrorTypes = true
+    useBuildCache = true
+}
+
+android {
+    compileSdkVersion buildConfig.compileSdk
+    buildToolsVersion buildConfig.buildTools
+    defaultConfig {
+        minSdkVersion buildConfig.minSdk
+        targetSdkVersion buildConfig.targetSdk
+    }
+}
+
+dependencies {
+    implementation Libs.AndroidX.appcompat
+    implementation Libs.AndroidX.Activity.activityKtx
+    implementation Libs.AndroidX.Fragment.fragmentKtx
+    implementation Libs.AndroidX.Lifecycle.viewmodelKtx
+
+    implementation Libs.Dagger.dagger
+    implementation Libs.Dagger.android
+    implementation Libs.Dagger.androidSupport
+    kapt Libs.Dagger.compiler
+    kapt Libs.Dagger.androidProcessor
+
+    implementation project(':base')
+    implementation project(':ui-common')
+}
