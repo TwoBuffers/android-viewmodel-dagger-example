@@ -4,6 +4,7 @@ package com.twobuffers.common.appinitializers
 
 import android.app.Application
 import com.twobuffers.base.di.ApplicationScoped
+import com.twobuffers.base.utils.AppInitializer
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoSet

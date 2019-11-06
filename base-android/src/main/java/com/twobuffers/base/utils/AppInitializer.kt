@@ -1,4 +1,4 @@
-package com.twobuffers.common.appinitializers
+package com.twobuffers.base.utils
 
 import android.app.Application
 
