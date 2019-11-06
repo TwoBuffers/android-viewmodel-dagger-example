@@ -4,9 +4,9 @@ package com.twobuffers.example.ui.example_2_injected
 
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
-import com.twobuffers.example.di.ActivityScoped
-import com.twobuffers.example.di.FragmentScoped
-import com.twobuffers.example.di.ViewModelKey
+import com.twobuffers.base.di.ActivityScoped
+import com.twobuffers.base.di.FragmentScoped
+import com.twobuffers.common.di.ViewModelKey
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

@@ -4,8 +4,6 @@ apply plugin: 'com.android.library'
 
 apply plugin: 'kotlin-android'
 
-apply plugin: 'kotlin-android-extensions'
-
 apply plugin: 'kotlin-kapt'
 kapt {
     correctErrorTypes = true
@@ -22,17 +20,17 @@ android {
 }
 
 dependencies {
-    implementation Libs.AndroidX.appcompat
-    implementation Libs.AndroidX.Activity.activityKtx
-    implementation Libs.AndroidX.Fragment.fragmentKtx
-    implementation Libs.AndroidX.Lifecycle.viewmodelKtx
+    implementation Libs.AndroidX.Lifecycle.process
+    implementation Libs.AndroidX.Lifecycle.runtimeKtx
 
-    implementation Libs.Dagger.dagger
-    implementation Libs.Dagger.android
-    implementation Libs.Dagger.androidSupport
-    kapt Libs.Dagger.compiler
-    kapt Libs.Dagger.androidProcessor
+    implementation Libs.RxJava.rxAndroid
+
+    compileOnly Libs.AssistedInject.annotationDagger2
+    kapt Libs.AssistedInject.processorDagger2
+
+    implementation Libs.Apache.commonsLang3
 
     implementation project(':base')
+    implementation project(':base-android')
     implementation project(':common-ui')
 }
