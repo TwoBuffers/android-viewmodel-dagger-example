@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.twobuffers.common.di
 
 import androidx.lifecycle.ViewModel
@@ -20,11 +22,10 @@ class ViewModelFactory @Inject constructor(
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T =
         vmProviders[modelClass]?.get() as T
-}
 
-@Suppress("unused")
-@Module
-abstract class ViewModelFactoryBindingModule {
-    @Binds
-    abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
+    @Module
+    abstract class Builder {
+        @Binds
+        abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
+    }
 }

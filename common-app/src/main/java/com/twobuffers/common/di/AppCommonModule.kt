@@ -31,7 +31,6 @@ import org.apache.commons.lang3.concurrent.BasicThreadFactory
 
 @Module(includes = [
     AppInitializers.DiModule::class,
-    ViewModelFactoryBindingModule::class,
     AppAssistedModule::class,
     AppCommonModule.BindingModule::class
 ])

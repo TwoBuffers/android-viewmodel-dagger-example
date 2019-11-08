@@ -25,6 +25,9 @@ dependencies {
 
     implementation Libs.RxJava.rxAndroid
 
+    implementation Libs.Dagger.dagger
+    kapt Libs.Dagger.compiler
+
     compileOnly Libs.AssistedInject.annotationDagger2
     kapt Libs.AssistedInject.processorDagger2
 
