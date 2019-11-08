@@ -73,6 +73,7 @@ android {
 
 dependencies {
     implementation Libs.Kotlin.stdlib
+
     implementation Libs.AndroidX.appcompat
     implementation Libs.AndroidX.constraintlayout
     implementation Libs.AndroidX.coreKtx
@@ -83,10 +84,16 @@ dependencies {
     kapt Libs.Dagger.compiler
     kapt Libs.Dagger.androidProcessor
 
+    implementation Libs.mvrx
+
+    compileOnly Libs.AssistedInject.annotationDagger2
+    kapt Libs.AssistedInject.processorDagger2
+
     implementation project(':base')
     implementation project(':base-android')
     implementation project(':common-ui')
     implementation project(':ui-example-1-plain')
     implementation project(':ui-example-2-injected')
+    implementation project(':ui-example-3-injected-mvrx')
     implementation project(':common-app')
 }

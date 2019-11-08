@@ -1,0 +1,52 @@
+import com.twobuffers.buildsrc.Libs
+
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+kapt {
+    correctErrorTypes = true
+    useBuildCache = true
+}
+
+android {
+    compileSdkVersion buildConfig.compileSdk
+    buildToolsVersion buildConfig.buildTools
+    defaultConfig {
+        minSdkVersion buildConfig.minSdk
+        targetSdkVersion buildConfig.targetSdk
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation Libs.Kotlin.stdlib
+    implementation Libs.Kotlin.reflect
+
+    implementation Libs.AndroidX.appcompat
+    implementation Libs.AndroidX.constraintlayout
+    implementation Libs.AndroidX.Activity.activityKtx
+    implementation Libs.AndroidX.Fragment.fragmentKtx
+    implementation Libs.AndroidX.Navigation.fragmentKtx
+    implementation Libs.AndroidX.Navigation.uiKtx
+    implementation Libs.AndroidX.Lifecycle.viewmodelKtx
+
+    implementation Libs.Dagger.dagger
+    implementation Libs.Dagger.android
+    implementation Libs.Dagger.androidSupport
+    kapt Libs.Dagger.compiler
+    kapt Libs.Dagger.androidProcessor
+
+    implementation Libs.mvrx
+
+    compileOnly Libs.AssistedInject.annotationDagger2
+    kapt Libs.AssistedInject.processorDagger2
+
+    implementation project(':base')
+    implementation project(':common-ui')
+}

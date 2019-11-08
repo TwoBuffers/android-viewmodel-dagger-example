@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/injected_mvrx_nav_graph"
+    app:startDestination="@id/injectedMvrxFragment"
+    >
+
+    <fragment
+        android:id="@+id/injectedMvrxFragment"
+        android:name="com.twobuffers.example.ui.example_3_injected_mvrx.InjectedMvrxFragment"
+        android:label="InjectedFragment"
+        />
+
+</navigation>

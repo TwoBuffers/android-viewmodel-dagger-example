@@ -14,7 +14,7 @@ object Versions {
 }
 
 object Libs {
-    const val androidGradlePlugin = "com.android.tools.build:gradle:3.5.2"
+    const val androidGradlePlugin = "com.android.tools.build:gradle:3.5.1"
     const val dexcountGradlePlugin = "com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.8.6"
     const val playPublisherPlugin = "com.github.triplet.gradle:play-publisher:2.3.0"
     // https://plugins.gradle.org/plugin/com.diffplug.gradle.spotless
@@ -42,6 +42,7 @@ object Libs {
         const val stdlib7 = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version"
         const val stdlib8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$version"
         const val stdlib = stdlib8
+        const val reflect = "org.jetbrains.kotlin:kotlin-reflect:$version"
         const val testJunit = "org.jetbrains.kotlin:kotlin-test-junit:$version"
         const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
     }
@@ -169,7 +170,7 @@ object Libs {
     }
 
     object AssistedInject {
-        private const val version = "0.5.0"
+        private const val version = "0.5.1"
         const val annotationDagger2 = "com.squareup.inject:assisted-inject-annotations-dagger2:$version"
         const val processorDagger2 = "com.squareup.inject:assisted-inject-processor-dagger2:$version"
         const val assistedInjectAnnotations = "com.squareup.inject:assisted-inject-annotations:$version"

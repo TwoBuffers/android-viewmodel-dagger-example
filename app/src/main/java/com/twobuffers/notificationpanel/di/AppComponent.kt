@@ -3,6 +3,7 @@ package com.twobuffers.notificationpanel.di
 import com.twobuffers.base.di.ApplicationScoped
 import com.twobuffers.common.di.AppCommonModule
 import com.twobuffers.example.ui.example_2_injected.InjectedModule
+import com.twobuffers.example.ui.example_3_injected_mvrx.InjectedMvrxModule
 import com.twobuffers.notificationpanel.App
 import dagger.BindsInstance
 import dagger.Component
@@ -25,6 +26,7 @@ import dagger.android.ContributesAndroidInjector
     AppModule::class,
     AppCommonModule::class,
     InjectedModule::class,
+    InjectedMvrxModule::class,
     AndroidInjectionModule::class
 ])
 interface AppComponent : AndroidInjector<App> {
