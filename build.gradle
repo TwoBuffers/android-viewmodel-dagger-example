@@ -1,3 +1,19 @@
+/*
+ * Copyright 2019 Two Buffers Ltd
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import com.twobuffers.buildsrc.Libs
 import com.twobuffers.buildsrc.Versions
 
@@ -37,14 +53,6 @@ allprojects {
 }
 
 subprojects {
-    apply plugin: 'com.diffplug.gradle.spotless'
-    spotless {
-        kotlin {
-            target "**/*.kt"
-            ktlint(Versions.ktlint)
-        }
-    }
-
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
         kotlinOptions {
             // Treat all Kotlin warnings as errors
@@ -57,6 +65,25 @@ subprojects {
             freeCompilerArgs += "-Xuse-experimental=kotlinx.coroutines.FlowPreview"
             // Enable kotlin.Result
             freeCompilerArgs += "-Xallow-result-return-type"
+        }
+    }
+    apply plugin: 'com.diffplug.gradle.spotless'
+    spotless {
+        kotlin {
+            target "**/*.kt"
+            ktlint(Versions.ktlint)
+            licenseHeaderFile(project.rootProject.file('spotless/copyright.txt'))
+            endWithNewline()
+        }
+        kotlinGradle {
+            ktlint(Versions.ktlint)
+            endWithNewline()
+        }
+        format 'misc', {
+            target '**/.gitignore', '**/*.gradle', '**/*.md', '**/*.sh'
+            indentWithTabs()
+            trimTrailingWhitespace()
+            endWithNewline()
         }
     }
 }

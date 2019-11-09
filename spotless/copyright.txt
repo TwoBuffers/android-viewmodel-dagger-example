@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Two Buffers Ltd
+ * Copyright $YEAR Two Buffers Ltd
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,20 +14,3 @@
  * limitations under the License.
  */
 
-package com.twobuffers.example.ui.example_1_plain
-
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-
-class PlainActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.plain_activity)
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.container, PlainFragment.newInstance())
-                .commitNow()
-        }
-    }
-}
