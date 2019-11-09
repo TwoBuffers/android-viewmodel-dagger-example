@@ -6,25 +6,22 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import com.twobuffers.base.di.ActivityScoped
 import com.twobuffers.base.di.FragmentScoped
+import com.twobuffers.common.di.ViewModelFactory
 import com.twobuffers.common.di.ViewModelKey
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
 
-/**
- * Contains all modules related to Injected example, directly or indirectly.
- */
 @Module(includes = [
-    InjectedModule.InjectedActivitySubcomponentModule::class
+    InjectedModule.ActivityDiModule::class
 ])
 class InjectedModule {
 
     @Module
-    abstract class InjectedActivitySubcomponentModule {
+    abstract class ActivityDiModule {
         @ContributesAndroidInjector(modules = [
-            InjectedFragmentSubcomponentModule::class,
-            ViewModelBindingModule::class
+            FragmentDiModule::class
         ])
         @ActivityScoped
         abstract fun contributeSubcomponent(): InjectedActivity
@@ -35,15 +32,17 @@ class InjectedModule {
     }
 
     @Module
-    abstract class InjectedFragmentSubcomponentModule {
-        @ContributesAndroidInjector(modules = [])
+    abstract class FragmentDiModule {
+        @ContributesAndroidInjector(modules = [
+            ViewModelDiModule::class
+        ])
         @FragmentScoped
         abstract fun contributeSubcomponent(): InjectedFragment
     }
 
     /** Necessary to instantiate InjectedViewModel. */
-    @Module
-    abstract class ViewModelBindingModule {
+    @Module(includes = [ViewModelFactory.Builder::class])
+    abstract class ViewModelDiModule {
         @Binds
         @IntoMap
         @ViewModelKey(InjectedViewModel::class)
