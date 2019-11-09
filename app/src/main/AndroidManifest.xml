@@ -36,6 +36,17 @@
 
         <activity
             android:name="com.twobuffers.example.ui.example_3_injected_mvrx.InjectedMvrxActivity"
+            tools:node="merge"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.twobuffers.example.ui.example_4_injected_mvrx_2.InjectedMvrx2Activity"
+            tools:node="merge"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

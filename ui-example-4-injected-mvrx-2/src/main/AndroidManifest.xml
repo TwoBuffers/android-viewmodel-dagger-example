@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.twobuffers.example.ui.example_4_injected_mvrx_2"
+    >
+
+    <application>
+        <activity
+            android:name="com.twobuffers.example.ui.example_4_injected_mvrx_2.InjectedMvrx2Activity"
+            android:label="4-InjectedMvrx2Activity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            />
+    </application>
+
+</manifest>

@@ -95,5 +95,6 @@ dependencies {
     implementation project(':ui-example-1-plain')
     implementation project(':ui-example-2-injected')
     implementation project(':ui-example-3-injected-mvrx')
+    implementation project(':ui-example-4-injected-mvrx-2')
     implementation project(':common-app')
 }
