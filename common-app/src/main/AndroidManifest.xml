@@ -17,5 +17,5 @@
 
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.twobuffers.example.app_common"
+    package="com.twobuffers.common_app"
     />
