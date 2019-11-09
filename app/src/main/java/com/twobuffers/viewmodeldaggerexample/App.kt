@@ -1,7 +1,7 @@
-package com.twobuffers.notificationpanel
+package com.twobuffers.viewmodeldaggerexample
 
 import com.twobuffers.common.appinitializers.AppInitializers
-import com.twobuffers.notificationpanel.di.createComponent
+import com.twobuffers.viewmodeldaggerexample.di.createComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import javax.inject.Inject

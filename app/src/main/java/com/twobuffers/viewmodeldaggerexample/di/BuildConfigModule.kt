@@ -1,9 +1,9 @@
 @file:Suppress("unused")
 
-package com.twobuffers.notificationpanel.di
+package com.twobuffers.viewmodeldaggerexample.di
 
 import com.twobuffers.base.di.TWOBUFFERS_DEBUG
-import com.twobuffers.notificationpanel.BuildConfig
+import com.twobuffers.viewmodeldaggerexample.BuildConfig
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named

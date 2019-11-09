@@ -1,11 +1,11 @@
-package com.twobuffers.notificationpanel.di
+package com.twobuffers.viewmodeldaggerexample.di
 
 import com.twobuffers.base.di.ApplicationScoped
 import com.twobuffers.common.di.AppCommonModule
 import com.twobuffers.example.ui.example_2_injected.InjectedModule
 import com.twobuffers.example.ui.example_3_injected_mvrx.InjectedMvrxModule
 import com.twobuffers.example.ui.example_4_injected_mvrx_2.InjectedMvrx2Module
-import com.twobuffers.notificationpanel.App
+import com.twobuffers.viewmodeldaggerexample.App
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule

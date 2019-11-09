@@ -1,10 +1,10 @@
 @file:Suppress("unused")
 
-package com.twobuffers.notificationpanel.di
+package com.twobuffers.viewmodeldaggerexample.di
 
 import android.app.Application
 import com.twobuffers.base.di.ApplicationScoped
-import com.twobuffers.notificationpanel.App
+import com.twobuffers.viewmodeldaggerexample.App
 import dagger.Binds
 import dagger.Module
 

@@ -1,4 +1,4 @@
-rootProject.name='Notification Panel'
+rootProject.name='ViewModel Dagger Example'
 
 include ':base'
 include ':base-android'

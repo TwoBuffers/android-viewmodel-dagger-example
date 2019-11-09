@@ -29,7 +29,7 @@ android {
     buildToolsVersion buildConfig.buildTools
 
     defaultConfig {
-        applicationId "com.twobuffers.example.notificationpanel"
+        applicationId "com.twobuffers.viewmodeldaggerexample"
         minSdkVersion buildConfig.minSdk
         targetSdkVersion buildConfig.targetSdk
         versionCode 1
